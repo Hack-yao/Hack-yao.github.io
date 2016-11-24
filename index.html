@@ -357,18 +357,11 @@
 <li>严格模式下删除，需要制定对象以及属性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">delete</span> x;  <span class="comment">//  严格模式错误</span></div><div class="line"><span class="keyword">delete</span> <span class="keyword">this</span>.x; <span class="comment">// 正常工作</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="6-4-属性检测"><a href="#6-4-属性检测" class="headerlink" title="6.4 属性检测"></a>6.4 属性检测</h2><p>Javascript对象可以看做属性的集合。想要判断某个属性是个存在于某个对象中。可以通过以下方法：</p>
-<ol>
-<li>in 运算符<br> ‘属性名’ in 对象： 如果对象的自有属性或继承属性中包含 这个属性名 则返回true</li>
-</ol>
+<h2 id="6-4-属性检测"><a href="#6-4-属性检测" class="headerlink" title="6.4 属性检测"></a>6.4 属性检测</h2><p>Javascript对象可以看做属性的集合。想要判断某个属性是个存在于某个对象中。可以通过以下方法：<br>1.in 运算符<br>    ‘属性名’ in 对象： 如果对象的自有属性或继承属性中包含 这个属性名 则返回true</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="number">1</span>&#125;</div><div class="line"><span class="string">"x"</span> <span class="keyword">in</span> o; <span class="comment">// true， 自有属性</span></div><div class="line"><span class="string">"y"</span> <span class="keyword">in</span> o; <span class="comment">// false</span></div><div class="line"><span class="string">"toString"</span> <span class="keyword">in</span> o; <span class="comment">// true 继承来的</span></div></pre></td></tr></table></figure>
-<ol>
-<li>hasOwnProperty() 检测给的的名字是否是对象的自有属性。对于继承属性返回false</li>
-</ol>
+<p>2.hasOwnProperty() 检测给的的名字是否是对象的自有属性。对于继承属性返回false</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> o = &#123; <span class="attr">x</span>: <span class="number">1</span>&#125;</div><div class="line">o.hasOwnProperty(<span class="string">'x'</span>); <span class="comment">// true， 自有属性</span></div><div class="line">o.hasOwnProperty(<span class="string">'y'</span>); <span class="comment">// false</span></div><div class="line">o.hasOwnProperty(<span class="string">'toString'</span>); <span class="comment">// false , 继承属性</span></div></pre></td></tr></table></figure>
-<ol>
-<li>propertyIsEnumerable() 检测是否是自有属性，且可以被枚举。 enumerable attribute</li>
-</ol>
+<p>3.propertyIsEnumerable() 检测是否是自有属性，且可以被枚举。 enumerable attribute</p>
 <h2 id="6-5-枚举属性"><a href="#6-5-枚举属性" class="headerlink" title="6.5 枚举属性"></a>6.5 枚举属性</h2><ul>
 <li>for/in</li>
 <li>Object.keys(obj)  – 返回对象中 可枚举的 自有属性名称 组成的 数组</li>
